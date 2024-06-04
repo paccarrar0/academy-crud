@@ -1,6 +1,5 @@
 FROM php:8.0-fpm-alpine
 
-# Instalar dependências
 RUN apk add --no-cache \
     bash \
     autoconf \
@@ -20,16 +19,12 @@ RUN apk add --no-cache \
     libxml2-dev \
     mysql-client
 
-# Instalar extensões PHP necessárias
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-# Configurar diretório de trabalho
 WORKDIR /var/www/html
 
-# Copiar o código da aplicação
 COPY . /var/www/html
 
-# Expor a porta do PHP-FPM
 EXPOSE 9000
 
 CMD ["php-fpm"]

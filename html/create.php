@@ -5,8 +5,12 @@ require_once "config.php";
 // Define variables and initialize with empty values
 $name = $address = $salary = "";
 $name_err = $address_err = $salary_err = "";
+
  
 // Processing form data when form is submitted
+
+/*-----------------------------------------------------------------*/
+// Validate name
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
     $input_name = trim($_POST["name"]);
@@ -17,7 +21,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $name = $input_name;
     }
-    
+
+/*------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------*/
+
     // Validate address
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
@@ -25,7 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $address = $input_address;
     }
-    
+
+/*------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------*/
+
     // Validate salary
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
@@ -35,7 +47,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $salary = $input_salary;
     }
-    
+
+/*------------------------------------------------------------------------*/
+
     // Check input errors before inserting in database
     if(empty($name_err) && empty($address_err) && empty($salary_err)){
         // Prepare an insert statement

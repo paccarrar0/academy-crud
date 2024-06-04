@@ -17,11 +17,6 @@
             width: 120px;
         }
     </style>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
 </head>
 <body>
     <div class="wrapper">
@@ -33,7 +28,7 @@
                         <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a>
                     </div>
                     <?php
-                    // Include config file
+                    
                     require_once "config.php";
                     
                     // Attempt select query execution
