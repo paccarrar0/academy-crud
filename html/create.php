@@ -82,54 +82,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AcademyTask</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper{
-            width: 600px;
-            margin: 0 auto;
-        }
-
-        .logo-svg{
-            width: 100px;
-            height: 100px;
-            background-size: cover;
-            background-image: url('../assets/log.svg')
-        }
-    </style>
-</head>
-<body>
-    <div class="logo-svg"></div>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="mt-5">Adicionar tarefa</h2>
-                    <p>Preencha o formulário para adicionar uma nova tarefa.</p>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="form-group">
-                            <label>Tarefa</label>
-                            <input type="text" name="task" class="form-control <?php echo (!empty($task_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $task; ?>">
-                            <span class="invalid-feedback"><?php echo $task_err;?></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Data</label>
-                            <input type="date" name="date" class="form-control <?php echo (!empty($date_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date; ?>">
-                            <span class="invalid-feedback"><?php echo $date_err;?></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Prioridade</label>
-                            <input type="text" name="priority" class="form-control <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
-                            <span class="invalid-feedback"><?php echo $priority_err;?></span>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Salvar">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
-                    </form>
-                </div>
-            </div>        
+    <head>
+        <meta charset="UTF-8">
+        <title>AcademyTask</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            .wrapper{
+                width: 600px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="../logo.svg" alt="logo">
+        <div class="wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="mt-5">Adicionar tarefa</h2>
+                        <p>Preencha o formulário para adicionar uma nova tarefa.</p>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <div class="form-group">
+                                <label>Tarefa</label>
+                                <input type="text" name="task" class="form-control <?php echo (!empty($task_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $task; ?>">
+                                <span class="invalid-feedback"><?php echo $task_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Data</label>
+                                <input type="date" name="date" class="form-control <?php echo (!empty($date_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date; ?>">
+                                <span class="invalid-feedback"><?php echo $date_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Prioridade</label>
+                                <input type="text" name="priority" class="form-control <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
+                                <span class="invalid-feedback"><?php echo $priority_err;?></span>
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Salvar">
+                            <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
+                        </form>
+                    </div>
+                </div>        
+            </div>
         </div>
-    </div>
-</body>
-</html>
+    </body>
+    </html>
