@@ -124,8 +124,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             </div>
                             <div class="form-group">
                                 <label>Prioridade</label>
-                                <input type="text" name="priority" class="form-control <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
-                                <span class="invalid-feedback"><?php echo $priority_err;?></span>
+                                <!-- O segundo valor estará selecionado inicialmente -->
+                                <select name="priority" class="form-control" <?php echo (!empty($date_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date; ?>">
+                                <option value="valor1">Valor 1</option>
+                                <option value="valor2" selected>Valor 2</option>
+                                <option value="valor3">Valor 3</option>
+                                </select>
+
                             </div>
                             <input type="submit" class="btn btn1" value="Salvar">
                             <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
