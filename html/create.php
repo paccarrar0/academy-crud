@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </style>
     </head>
     <body>
-        <img src="../logo.svg" alt="logo">
+        <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
         <div class="wrapper">
             <div class="container-fluid">
                 <div class="row">
