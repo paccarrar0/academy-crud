@@ -165,9 +165,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                         <div class="form-group">
                             <label>Prioridade</label>
                             <select name="priority" class="form-control" <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
-                                <option value="alta">Alta</option>
-                                <option value="mediana" selected>Mediana</option>
-                                <option value="baixa">Baixa</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Mediana" selected>Mediana</option>
+                                <option value="Baixa">Baixa</option>
                             </select>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>

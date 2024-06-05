@@ -125,9 +125,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <div class="form-group">
                                 <label>Prioridade</label>
                                 <select name="priority" class="form-control" <?php echo (!empty($date_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date; ?>">
-                                    <option value="alta">Alta</option>
-                                    <option value="mediana" selected>Mediana</option>
-                                    <option value="baixa">Baixa</option>
+                                    <option value="Alta">Alta</option>
+                                    <option value="Mediana" selected>Mediana</option>
+                                    <option value="Baixa">Baixa</option>
                                 </select>
                             </div>
                             <input type="submit" class="btn btn1" value="Salvar">
