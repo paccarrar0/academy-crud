@@ -91,11 +91,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 width: 600px;
                 margin: 0 auto;
             }
+
+            .logo{
+                width: 247px;
+                margin: 0 auto;
+            }
         </style>
     </head>
     <body>
         <div class="wrapper">
-            <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+            <img class="logo" src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
