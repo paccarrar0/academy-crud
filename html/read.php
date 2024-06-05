@@ -61,10 +61,21 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             width: 600px;
             margin: 0 auto;
         }
+        .border {
+                border: 1px solid #0A8967 !important;
+                border-radius: 10px;
+        }
+        .btn1{
+                background-color: #0A8967;
+                color: white;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
+        <div class="d-flex justify-content-center mt-4 border">
+            <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -81,7 +92,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Salary</label>
                         <p><b><?php echo $row["priority"]; ?></b></p>
                     </div>
-                    <p><a href="index.php" class="btn btn-primary">Voltar</a></p>
+                    <p><a href="index.php" class="btn btn1">Voltar</a></p>
                 </div>
             </div>        
         </div>

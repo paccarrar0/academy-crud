@@ -91,12 +91,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 width: 600px;
                 margin: 0 auto;
             }
-
             .border {
                 border: 1px solid #0A8967 !important;
                 border-radius: 10px;
             }
-
             .btn1{
                 background-color: #0A8967;
                 color: white;

@@ -72,10 +72,21 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             width: 600px;
             margin: 0 auto;
         }
+        .border {
+                border: 1px solid #0A8967 !important;
+                border-radius: 10px;
+        }
+        .btn1{
+                background-color: #0A8967;
+                color: white;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
+        <div class="d-flex justify-content-center mt-4 border">
+            <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -85,7 +96,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                             <p>Você tem certeza que deseja excluir esta tarefa?</p>
                             <p>
-                                <input type="submit" value="Excluir" class="btn btn-danger">
+                                <input type="submit" value="Excluir" class="btn btn1">
                                 <a href="index.php" class="btn btn-secondary">Cancelar</a>
                             </p>
                         </div>

@@ -29,7 +29,7 @@
 <body>
     <div class="wrapper">
         <div class="d-flex justify-content-center mt-4 border">
-                <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+            <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
         </div>
         <div class="container-fluid">
             <div class="row">
@@ -67,9 +67,9 @@
                                         echo "<td>" . $formattedDate . "</td>";
                                         echo "<td>" . $row['priority'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="read.php?id='. $row['id'] .'" class="mr-3"><span class="fa fa-eye text-black"></span></a>';
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3"><span class="fa fa-pencil text-black"></span></a>';
-                                            echo '<a href="delete.php?id='. $row['id'] .'" "><span class="fa fa-trash text-black"></span></a>';
+                                            echo '<a href="read.php?id='. $row['id'] .'" class="mr-3"><span class="fa fa-eye" style="color: black"></span></a>';
+                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3"><span class="fa fa-pencil" style="color: black"></span></a>';
+                                            echo '<a href="delete.php?id='. $row['id'] .'" "><span class="fa fa-trash" style="color: black"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }

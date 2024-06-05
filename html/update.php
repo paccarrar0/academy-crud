@@ -131,10 +131,21 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             width: 600px;
             margin: 0 auto;
         }
+        .border {
+                border: 1px solid #0A8967 !important;
+                border-radius: 10px;
+        }
+        .btn1{
+                background-color: #0A8967;
+                color: white;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
+        <div class="d-flex justify-content-center mt-4 border">
+            <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -157,7 +168,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <span class="invalid-feedback"><?php echo $priority_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Alterar">
+                        <input type="submit" class="btn btn1" value="Alterar">
                         <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
                     </form>
                 </div>
