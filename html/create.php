@@ -91,11 +91,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 width: 600px;
                 margin: 0 auto;
             }
+
+            .border {
+                border: 1px solid #0A8967 !important;
+                border-radius: 10px;
+            }
+
+            .btn1{
+                background-color: #0A8967;
+                color: white;
+            }
         </style>
     </head>
     <body>
-        <div class="wrapper text-center">
-            <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+        <div class="wrapper">
+            <div class="d-flex justify-content-center mt-4 border">
+                <img src="https://res.cloudinary.com/dnbbxja52/image/upload/v1717622700/academytask-devops/logo.svg" alt="logo">
+            </div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -117,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <input type="text" name="priority" class="form-control <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
                                 <span class="invalid-feedback"><?php echo $priority_err;?></span>
                             </div>
-                            <input type="submit" class="btn btn-primary" value="Salvar">
+                            <input type="submit" class="btn btn1" value="Salvar">
                             <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
                         </form>
                     </div>
