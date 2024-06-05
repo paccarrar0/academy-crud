@@ -92,10 +92,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             margin: 0 auto;
         }
     </style>
+    <script>
+    fetch('../assets/logo.svg')
+        .then(response => response.text())
+        .then(svg => {
+            document.getElementById('logo-svg').innerHTML = svg;
+        });
+    </script>
 </head>
 <body>
+    <div id="logo-svg"></div>
     <div class="wrapper">
-        <img class="m-auto" src="../assets/logo.svg" alt="logo">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
