@@ -4,26 +4,48 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include config file
     require_once "config.php";
     
-    // Prepare a delete statement
-    $sql = "DELETE FROM tasks WHERE id = ?";
-    
-    if($stmt = mysqli_prepare($link, $sql)){
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
+    // Start transaction
+    mysqli_begin_transaction($link);
+
+    try {
+        // Prepare a delete statement
+        $sql = "DELETE FROM tasks WHERE id = ?";
         
-        // Set parameters
-        $param_id = trim($_POST["id"]);
-        
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            // Records deleted successfully. Redirect to landing page
-            header("location: index.php");
-            exit();
-        } else{
-            echo "Algo deu errado, tente novamente mais tarde.";
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "i", $param_id);
+            
+            // Set parameters
+            $param_id = (int) trim($_POST["id"]);
+            
+            // Attempt to execute the prepared statement
+            if(!mysqli_stmt_execute($stmt)){
+                throw new Exception("Could not execute delete statement.");
+            }
+        } else {
+            throw new Exception("Could not prepare delete statement.");
         }
+        
+        // Resequence the ids
+        $resequence_sql = "SET @count = 0; UPDATE tasks SET id = @count:= @count + 1; ALTER TABLE tasks AUTO_INCREMENT = 1;";
+        
+        if (!mysqli_multi_query($link, $resequence_sql)) {
+            throw new Exception("Could not resequence ids.");
+        }
+        
+        // Commit transaction
+        mysqli_commit($link);
+        
+        // Records deleted and ids resequenced successfully. Redirect to landing page
+        header("location: index.php");
+        exit();
+        
+    } catch (Exception $e) {
+        // Rollback transaction
+        mysqli_rollback($link);
+        echo "Something went wrong. Please try again later.";
     }
-     
+    
     // Close statement
     mysqli_stmt_close($stmt);
     
