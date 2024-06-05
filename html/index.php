@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>AcademyTaks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -31,7 +31,6 @@
                     
                     require_once "config.php";
                     
-                    // Attempt select query execution
                     $sql = "SELECT * FROM tasks";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
@@ -50,7 +49,7 @@
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['taks'] . "</td>";
-                                        echo "<td>" . $row['date'] . "</td>";
+                                        echo "<td>" . $row['data'] . "</td>";
                                         echo "<td>" . $row['priority'] . "</td>";
                                         echo "<td>";
                                             echo '<a href="read.php?id='. $row['id'] .'" class="mr-3"><span class="fa fa-eye"></span></a>';
@@ -70,7 +69,6 @@
                         echo "Algo deu errado, tente novamente mais tarde.";
                     }
  
-                    // Close connection
                     mysqli_close($link);
                     ?>
                 </div>

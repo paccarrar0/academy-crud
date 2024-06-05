@@ -1,10 +1,9 @@
 <?php
-// Include config file
+
 require_once "config.php";
  
-// Define variables and initialize with empty values
-$name = $address = $salary = "";
-$name_err = $address_err = $salary_err = "";
+$task = $date = $priority = "";
+$task_err = $date_err = $priority_err = "";
 
  
 // Processing form data when form is submitted
@@ -13,13 +12,13 @@ $name_err = $address_err = $salary_err = "";
 // Validate name
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
-    $input_name = trim($_POST["name"]);
-    if(empty($input_name)){
-        $name_err = "Please enter a name.";
-    } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
+    $input_task = trim($_POST["task"]);
+    if(empty($input_task)){
+        $taks_err = "Insira o nome da tarefa";
+    } elseif(!filter_var($input_taks, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $taks_err = "Insira um nome válido.";
     } else{
-        $name = $input_name;
+        $taks = $input_taks;
     }
 
 /*------------------------------------------------------------------------*/
@@ -27,11 +26,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 /*------------------------------------------------------------------------*/
 
     // Validate address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an address.";     
+    $input_date = trim($_POST["date"]);
+    if(empty($input_date)){
+        $date_err = "Insira o prazo da tarefa.";     
     } else{
-        $address = $input_address;
+        $date = $input_date;
     }
 
 /*------------------------------------------------------------------------*/
@@ -39,30 +38,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 /*------------------------------------------------------------------------*/
 
     // Validate salary
-    $input_salary = trim($_POST["salary"]);
-    if(empty($input_salary)){
-        $salary_err = "Please enter the salary amount.";     
-    } elseif(!ctype_digit($input_salary)){
-        $salary_err = "Please enter a positive integer value.";
+    $input_priority = trim($_POST["priority"]);
+    if(empty($input_priority)){
+        $priority_err = "Insira a prioridade da tarefa.";     
     } else{
-        $salary = $input_salary;
+        $priority = $input_priority;
     }
 
 /*------------------------------------------------------------------------*/
 
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($address_err) && empty($salary_err)){
+    if(empty($task_err) && empty($date_err) && empty($prio_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO employees (name, address, salary) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO tasks (task, data, priority) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_address, $param_salary);
+            mysqli_stmt_bind_param($stmt, "sss", $param_task, $param_date, $param_priority);
             
             // Set parameters
-            $param_name = $name;
-            $param_address = $address;
-            $param_salary = $salary;
+            $param_task = $task;
+            $param_date = $date;
+            $param_priority = $priority;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -70,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("location: index.php");
                 exit();
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Algo deu errado, tente novamente mais tarde.";
             }
         }
          
@@ -87,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Record</title>
+    <title>AcademyTaks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -101,26 +98,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Create Record</h2>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <h2 class="mt-5">Adicionar tarefa</h2>
+                    <p>Preencha o formulário para adicionar uma nova tarefa.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $name; ?>">
-                            <span class="invalid-feedback"><?php echo $name_err;?></span>
+                            <label>Tarefa</label>
+                            <input type="text" name="task" class="form-control <?php echo (!empty($task_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $task; ?>">
+                            <span class="invalid-feedback"><?php echo $task_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>"><?php echo $address; ?></textarea>
-                            <span class="invalid-feedback"><?php echo $address_err;?></span>
+                            <label>Data</label>
+                            <input type="date" name="date" class="form-control <?php echo (!empty($date_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date; ?>">
+                            <span class="invalid-feedback"><?php echo $date_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Salary</label>
-                            <input type="text" name="salary" class="form-control <?php echo (!empty($salary_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $salary; ?>">
-                            <span class="invalid-feedback"><?php echo $salary_err;?></span>
+                            <label>Prioridade</label>
+                            <input type="text" name="priority" class="form-control <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
+                            <span class="invalid-feedback"><?php echo $priority_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Salvar">
+                        <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
                     </form>
                 </div>
             </div>        
