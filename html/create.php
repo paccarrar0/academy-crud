@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_task = trim($_POST["task"]);
     if(empty($input_task)){
         $taks_err = "Insira o nome da tarefa";
-    } elseif(!filter_var($input_taks, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+    } elseif(!filter_var($input_task, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
         $taks_err = "Insira um nome válido.";
     } else{
         $taks = $input_taks;

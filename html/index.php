@@ -48,7 +48,7 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['taks'] . "</td>";
+                                        echo "<td>" . $row['task'] . "</td>";
                                         echo "<td>" . $row['data'] . "</td>";
                                         echo "<td>" . $row['priority'] . "</td>";
                                         echo "<td>";
