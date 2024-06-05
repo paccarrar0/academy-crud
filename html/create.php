@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <div class="wrapper">
-        <img src="../assets/logo.svg" alt="logo">
+        <img class="m-auto" src="../assets/logo.svg" alt="logo">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
