@@ -91,17 +91,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             width: 600px;
             margin: 0 auto;
         }
+
+        .logo-svg{
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-image: url('../assets/log.svg')
+        }
     </style>
-    <script>
-    fetch('../assets/logo.svg')
-        .then(response => response.text())
-        .then(svg => {
-            document.getElementById('logo-svg').innerHTML = svg;
-        });
-    </script>
 </head>
 <body>
-    <div id="logo-svg"></div>
+    <div class="logo-svg"></div>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
