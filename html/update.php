@@ -164,8 +164,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                         </div>
                         <div class="form-group">
                             <label>Prioridade</label>
-                            <input type="text" name="priority" class="form-control <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
-                            <span class="invalid-feedback"><?php echo $priority_err;?></span>
+                            <select name="priority" class="form-control" <?php echo (!empty($priority_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priority; ?>">
+                                <option value="alta">Alta</option>
+                                <option value="mediana" selected>Mediana</option>
+                                <option value="baixa">Baixa</option>
+                            </select>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn1" value="Alterar">
