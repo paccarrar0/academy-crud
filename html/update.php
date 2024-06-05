@@ -12,7 +12,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $id = $_POST["id"];
     
     // Validate name
-    $input_task = trim($_POST["taks"]);
+    $input_task = trim($_POST["task"]);
     if(empty($input_task)){
         $task_err = "Insira o nome da tarefa.";
     } elseif(!filter_var($input_task, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
@@ -93,7 +93,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     
                     // Retrieve individual field value
-                    $taks = $row["task"];
+                    $task = $row["task"];
                     $date = $row["data"];
                     $priority = $row["priority"];
                 } else{
