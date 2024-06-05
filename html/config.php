@@ -1,7 +1,7 @@
 <?php
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-define('DB_SERVER', '172.18.0.2');
+define('DB_SERVER', 'mysql');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '123456');
 define('DB_NAME', 'academydb');
