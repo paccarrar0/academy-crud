@@ -46,10 +46,14 @@
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
+
+                                    $date = DateTime::createFromFormat('Y-m-d', $row['data']);
+                                    $formattedDate = $date ? $date->format('d/m/Y') : $row['data'];
+
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['task'] . "</td>";
-                                        echo "<td>" . $row['data'] . "</td>";
+                                        echo "<td>" . $formattedDate . "</td>";
                                         echo "<td>" . $row['priority'] . "</td>";
                                         echo "<td>";
                                             echo '<a href="read.php?id='. $row['id'] .'" class="mr-3"><span class="fa fa-eye"></span></a>';
