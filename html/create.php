@@ -14,11 +14,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
     $input_task = trim($_POST["task"]);
     if(empty($input_task)){
-        $taks_err = "Insira o nome da tarefa";
+        $task_err = "Insira o nome da tarefa";
     } elseif(!filter_var($input_task, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $taks_err = "Insira um nome válido.";
+        $task_err = "Insira um nome válido.";
     } else{
-        $taks = $input_taks;
+        $task = $input_task;
     }
 
 /*------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AcademyTaks</title>
+    <title>AcademyTask</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
